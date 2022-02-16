@@ -35,3 +35,18 @@ variable "product_api_db_version" {
   description = "Docker version tag"
   default = "0.0.19"
 }
+
+variable "posgres_db" {
+  description = "Postgres DB name"
+  default = "products"
+}
+
+variable "postgres_user" {
+  description = "Postgres DB User"
+  default = "postgres"
+}
+
+variable "postgress_password" {
+  description = "Postgres DB Password"
+  default = "password"
+}

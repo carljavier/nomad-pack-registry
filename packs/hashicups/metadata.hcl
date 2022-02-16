@@ -1,6 +1,6 @@
 app {
-  url = "https://learn.hashicorp.com/tutorials/nomad/nomad-pack-writing-packs"
-  author = "Carl Javier"
+  url = "https://github.com/hashicorp-demoapp"
+  author = "HashiCorp"
 }
 
 pack {

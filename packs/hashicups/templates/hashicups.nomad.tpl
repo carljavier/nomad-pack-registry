@@ -172,7 +172,7 @@ job "hashicups" {
 
       env {
         CONFIG_FILE = "/config/config.json"
-				DB_CONNECTION = "host=localhost port=5000 user=postgres password=password dbname=products sslmode=disable"
+				DB_CONNECTION = "host=localhost port=5000 user=[[ .hashicups.postgres_user ]] password=[[ .hashicups.postgress_password ]] dbname=[[ .hashicups.posgres_db ]] sslmode=disable"
 				BIND_ADDRESS = "0.0.0.0:9090"
       }
     }
@@ -200,9 +200,9 @@ job "hashicups" {
       }
 
       env {
-        POSTGRES_DB       = "products"
-        POSTGRES_USER     = "postgres"
-        POSTGRES_PASSWORD = "password"
+        POSTGRES_DB       = "[[ .hashicups.posgres_db ]]"
+        POSTGRES_USER     = "[[ .hashicups.postgres_user ]]"
+        POSTGRES_PASSWORD = "[[ .hashicups.postgress_password ]]"
       }
     }
   }
