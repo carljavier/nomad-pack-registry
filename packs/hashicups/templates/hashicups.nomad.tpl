@@ -1,7 +1,7 @@
 job "hashicups" {
   type   = "service"
-  region = "[[ .hello_pack.region ]]"
-  datacenters = [ [[ range $idx, $dc := .hello_pack.datacenters ]][[if $idx]],[[end]][[ $dc | quote ]][[ end ]] ]
+  region = "[[ .hashicups.region ]]"
+  datacenters = [ [[ range $idx, $dc := .hashicups.datacenters ]][[if $idx]],[[end]][[ $dc | quote ]][[ end ]] ]
 
   group "frontend" {
     network {
