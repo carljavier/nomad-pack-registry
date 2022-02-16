@@ -9,6 +9,15 @@ This is a registry of Carl's packs for Nomad Pack.
 
 For guidance on writing your own packs, see the [Writing Packs Guide](https://github.com/hashicorp/nomad-pack/blob/main/docs/writing-packs.md) in the Nomad Pack repository.
 
+
+# Add my registry
+
+Grab the latest [nomad-pack](https://releases.hashicorp.com/nomad-pack/) and run the following where you deploy your nomad jobs:
+
+```shell
+$ nomad-pack registry add carls_packs git@github.com/carljavier/nomad-pack-registry
+```
+
 # Contributions and Feedback
 
 Contributions are welcome in any form.
