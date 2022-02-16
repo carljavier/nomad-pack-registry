@@ -15,7 +15,7 @@ For guidance on writing your own packs, see the [Writing Packs Guide](https://gi
 Grab the latest [nomad-pack](https://releases.hashicorp.com/nomad-pack/) and run the following where you deploy your nomad jobs:
 
 ```shell
-$ nomad-pack registry add carls_packs git@github.com/carljavier/nomad-pack-registry
+nomad-pack registry add carljavier github.com/carljavier/nomad-pack-registry
 ```
 
 # Contributions and Feedback
