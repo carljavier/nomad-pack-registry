@@ -125,7 +125,7 @@ job "hashicups" {
       driver = "docker"
 
       config {
-        image = "hashicorpdemoapp/payments:v[[ .hashicups.payment_version ]]"
+        image = "hashicorpdemoapp/payments:v[[ .hashicups.payments_version ]]"
       }
     }
   }
