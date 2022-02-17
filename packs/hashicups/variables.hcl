@@ -50,3 +50,16 @@ variable "postgress_password" {
   description = "Postgres DB Password"
   default = "password"
 }
+
+variable "frontend_ui_port" {
+  description = "HTTP UI port"
+  default = 80
+}
+
+
+variable "register_consul_service" {
+  description = "If you want to register a consul service for the job"
+  type        = bool
+  default     = true
+}
+

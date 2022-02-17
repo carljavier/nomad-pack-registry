@@ -7,13 +7,14 @@ job "hashicups" {
     network {
       mode = "bridge"
       port "http" {
-        static = 80
+        static = [[ .hashicups.frontend_ui_port ]]
       }
     }
 
+    [[ if .hashicups.register_consul_service ]]
     service {
       name = "frontend"
-      port = "80"
+      port = "[[ .hashicups.frontend_ui_port ]]"
 
       connect {
         sidecar_service {
@@ -26,9 +27,14 @@ job "hashicups" {
         }
       }
     }
+    [[ end ]]
 
     task "frontend" {
       driver = "docker"
+
+      env {
+          PORT = [[ .hashicups.frontend_ui_port ]]
+      }
 
       config {
         image = "hashicorpdemoapp/frontend:v[[ .hashicups.frontend_version ]]"
@@ -73,6 +79,7 @@ job "hashicups" {
       mode = "bridge"
     }
 
+    [[ if .hashicups.register_consul_service ]]
     service {
       name = "product-public-api"
       port = "8080"
@@ -92,6 +99,7 @@ job "hashicups" {
         }
       }
     }
+    [[ end ]]
 
     task "product-public-api" {
       driver = "docker"
@@ -112,6 +120,7 @@ job "hashicups" {
       mode = "bridge"
     }
 
+    [[ if .hashicups.register_consul_service ]]
     service {
       name = "payment-api"
       port = "8080"
@@ -120,6 +129,7 @@ job "hashicups" {
         sidecar_service {}
       }
     }
+    [[ end ]]
 
     task "payment-api" {
       driver = "docker"
@@ -138,6 +148,7 @@ job "hashicups" {
       }
     }
 
+    [[ if .hashicups.register_consul_service ]]
     service {
       name = "product-api"
       port = "9090"
@@ -162,6 +173,7 @@ job "hashicups" {
         }
       }
     }
+    [[ end ]]
 
     task "product-api" {
       driver = "docker"
@@ -183,6 +195,7 @@ job "hashicups" {
       mode = "bridge"
     }
 
+    [[ if .hashicups.register_consul_service ]]
     service {
       name = "product-db"
       port = "5432"
@@ -191,6 +204,7 @@ job "hashicups" {
         sidecar_service {}
       }
     }
+    [[ end ]]
 
     task "db" {
       driver = "docker"
